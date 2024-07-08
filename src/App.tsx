@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// Importing: Router.
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+// Importing: Project components.
+import Homepage from "./Homepage";
+import Foobar from "./components/Foobar";
+import RockScissorPaper from "./components/RockScissorPaper";
+
+// Importing: Styles.
+import "./App.css";
 
 function App() {
+  const router = createBrowserRouter([
+    { path: "/", element: <Homepage /> },
+    { path: "/foobar", element: <Foobar /> },
+    { path: "/rockScissorsPaper", element: <RockScissorPaper /> },
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RouterProvider router={router} />
     </div>
   );
 }
